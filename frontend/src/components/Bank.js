@@ -1,26 +1,25 @@
-import React, { Component } from "react";
-import "./assets/Bank.css";
+import React, { useState, useEffect } from "react";
+import "./assets/Portfolio.css";
 
-class Bank extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
-  callAPI() {
+const Portfolio = (props) => {
+  const [state, setState] = useState({});
+  useEffect(() => {
+    callAPI();
+  });
+
+  const callAPI = () => {
     fetch("http://localhost:9000/FETCHURL")
       .then((res) => res.text())
-      .then((res) => this.setState()({ apiresponse: res }))
+      .then((res) => setState(res))
       .catch((err) => err);
-  }
-  componentDidMount() {
-    this.callAPI();
-  }
-  render() {
-    return (
-      <div class="container">
-        <h1 class="d-flex justify-content-center m-2 p-4">Bank</h1>
-      </div>
-    );
-  }
-}
+  };
+
+  return (
+    <div class="container">
+      <h1 class="d-flex justify-content-center m-2 p-4">Bank</h1>
+      <h1></h1>
+    </div>
+  );
+};
+
 export default Bank;
