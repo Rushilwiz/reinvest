@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#reinvest">ReInvest</a>
       <button
         class="navbar-toggler"
@@ -27,46 +27,92 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#about"
+            <a class="nav-link text-dark" href="#about"
               >About <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#services">Our Services</a>
+            <a class="nav-link text-dark" href="#services">Our Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#support">Support</a>
+            <a class="nav-link text-dark" href="#support">Support</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#LOGIN">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-success rounded text-dark" href="#REGISTER"
+              >Register</a
+            >
           </li>
         </ul>
       </div>
-      <ul class="navbar-nav navbar-right">
-        <li class="nav-item">
-          <a class="nav-link" href="#LOGIN">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link bg-success rounded" href="#REGISTER">Register</a>
-        </li>
-      </ul>
     </nav>
     <section
-      class="reinvest"
+      id="reinvest"
       style="
         background-image: url('images/background.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        height: 480px;
+        height: 690px;
         padding-top: 80px;
       "
     >
       <div class="container">
-        <h1 class="text-white">ReInvest</h1>
+        <br />
+        <br />
+        <br />
+        <h1 class="text-white"><u>ReInvest</u></h1>
         <br />
         <br />
         <h3 class="text-white">
           Trade stocks under the name of a charity of your choice!
         </h3>
+      </div>
+    </section>
+    <section id="about" class="p-4">
+      <div class="container">
+        <h1 class="d-flex justify-content-center m-2 p-2">About Us</h1>
+        <p class="d-flex justify-content-center m-2 p-2">
+          ReInvest is a philanthropic platform where users can invest money for
+          charities. Instead of a simple donation, you can purchase stocks for
+          your charity of choice. This offers a great opportunity for you to
+          learn about stocks while helping your favorite organizations. Scared
+          of losing too much money? Our platform offers automatic stop losses so
+          that your organization doesn't lose more than a set percentage of your
+          initial donation. Additionally, you set the percentage of profits that
+          you get in return meanwhile your charity gets the initial donation
+          plus the rest of the profits.
+        </p>
+      </div>
+    </section>
+    <section id="services" class="">
+      <div class="bg-dark text-white">
+        <div class="container">
+          <h1 class="d-flex justify-content-center m-2 p-4">Our Services</h1>
+          <p class="d-flex justify-content-center m-2 p-4">
+            ReInvest is a philanthropic platform where users can invest money
+            for charities. Instead of a simple donation, you can purchase stocks
+            for your charity of choice. This offers a great opportunity for you
+            to learn about stocks while helping your favorite organizations.
+            Scared of losing too much money? Our platform offers automatic stop
+            losses so that your organization doesn't lose more than a set
+            percentage of your initial donation. Additionally, you set the
+            percentage of profits that you get in return meanwhile your charity
+            gets the initial donation plus the rest of the profits.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="support" class="m-2">
+      <div class="container">
+        <h1 class="d-flex justify-content-center m-2 p-4">Support</h1>
+        <h4>Contact:</h4>
+        <p>@gmail.com</p>
       </div>
     </section>
     <script href="js/index.js"></script>
