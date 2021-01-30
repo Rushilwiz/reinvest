@@ -1,21 +1,20 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Services from "./components/Services";
-import Home from "./components/Home";
+import Portfolio from "./components/Portfolio";
+import Bank from "./components/Bank";
+import Profile from "./components/Profile";
+import Browse from "./components/Browse";
+
 import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Switch>
-        <Route component={About} path="/about" />
-        <Route component={Services} path="/services" />
-        <Route component={Contact} path="/contact" />
-        <Route component={Home} path="/" />
+        <Route component={Bank} path="/banking" />
+        <Route component={Browse} path="/browse" />
+        <Route component={Profile} path="/profile" />
+        <Route component={Portfolio} path="/" />
       </Switch>
     </BrowserRouter>
   );
