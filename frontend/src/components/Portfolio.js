@@ -3,25 +3,34 @@ import "./assets/Portfolio.css";
 
 const Portfolio = (props) => {
   const [state, setState] = useState({
-    user: { username: "", first_name: "", last_name: "" },
+    user: { username: "", email: "", first_name: "", last_name: "" },
     charity: "",
+    nickname: "",
+    profile_pic: "/media/default.jpg",
+    percentage: 0.5,
     stocks: [],
   });
-  useEffect(() => {
-    callAPI();
-  }, [state]);
+
   const requestOptions = {
     method: "GET",
     headers: {
-      Authorization: `JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjEyMDgyNzM3LCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSJ9.hmTYX9LO1koP-1OLfY7EYBHZPtviGz2ilBA9qq4MChw`,
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   };
 
   const callAPI = () => {
-    fetch(`${process.env.REACT_APP_API_ENDPOINT}/profile`, requestOptions)
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/profile/`, requestOptions)
       .then((response) => response.json())
-      .then((data) => setState(data));
+      .then((data) => {
+        if (data !== undefined) {
+          setState(data);
+        }
+      });
   };
+
+  useEffect(() => {
+    callAPI();
+  }, []);
 
   return (
     <div>
@@ -31,7 +40,7 @@ const Portfolio = (props) => {
 
       <div className="bg-dark text-white">
         <h4 className="d-flex justify-content-center m-2 p-4">Your Stocks:</h4>
-        {state.stocks.map((stock) => {
+        {[].map((stock) => {
           return (
             <div className="d-inline-flex m-1 text-wrap bg-warning rounded p-3">
               <h3>Stock: {stock.ticker}</h3>

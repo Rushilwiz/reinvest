@@ -16,12 +16,13 @@ const Signup = (props) => {
     };
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_ENDPOINT}/token`,
+        `${process.env.REACT_APP_API_ENDPOINT}/token/`,
         requestOptions
       );
       const data = await response.json();
 
-      localStorage.setItem("token", data.token);
+      localStorage.setItem("token", data.access);
+      localStorage.setItem("refresh", data.refresh);
       history.push("/");
     } catch (e) {
       console.error(e);

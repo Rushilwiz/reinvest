@@ -6,26 +6,25 @@ const Plot = createPlotlyComponent(Plotly);
 const Browse = (props) => {
   const [stockChartXValues, setStockChartXValues] = useState([]);
   const [stockChartYValues, setStockChartYValues] = useState([]);
-  const [days, setDays] = useState(100);
+  const [days, setDays] = useState(30);
   const [stock, setStock] = useState("INTC");
-  useEffect(() => {
-    fetchStock();
-  }, [stock]);
-  let stockChartXValuesFunction = [];
-  let stockChartYValuesFunction = [];
+
+  let stockChartXValuesList = [];
+  let stockChartYValuesList = [];
+
   const fetchStock = () => {
     const KEY = "DTPB5IBDMPNE65TY";
     let API_CALL = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stock}&outputsize=compact&apikey=${KEY}`;
 
     const handleData = (data) => {
       for (var date in data["Time Series (Daily)"]) {
-        stockChartXValuesFunction.push(date);
-        stockChartYValuesFunction.push(
+        stockChartXValuesList.push(date);
+        stockChartYValuesList.push(
           data["Time Series (Daily)"][date]["1. open"]
         );
       }
-      setStockChartXValues(stockChartXValuesFunction);
-      setStockChartYValues(stockChartYValuesFunction);
+      setStockChartXValues(stockChartXValuesList);
+      setStockChartYValues(stockChartYValuesList);
     };
 
     fetch(API_CALL)
@@ -33,8 +32,12 @@ const Browse = (props) => {
       .then((data) => handleData(data));
   };
 
+  useEffect(() => {
+    fetchStock();
+  }, [stock]);
+
   return (
-    <div className="container">
+    <div className="portfolio container">
       <h1 className="d-flex justify-content-center m-2 p-4">Browse</h1>
       <input
         className="form-control"
