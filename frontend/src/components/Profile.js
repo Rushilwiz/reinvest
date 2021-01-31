@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./assets/Portfolio.css";
 
-const Portfolio = (props) => {
+const Profile = (props) => {
   const [state, setState] = useState({});
   useEffect(() => {
     callAPI();
@@ -22,4 +22,4 @@ const Portfolio = (props) => {
   );
 };
 
-export default Portfolio;
+export default Profile;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./assets/Portfolio.css";
 
-const Portfolio = (props) => {
+const Bank = (props) => {
   const [state, setState] = useState({});
   useEffect(() => {
     callAPI();

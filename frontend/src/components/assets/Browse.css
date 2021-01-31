@@ -1,0 +1,17 @@
+.h4 {
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: cornflowerblue;
+}
+h1 {
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: cornflowerblue;
+}
+.btn {
+  background-color: cornflowerblue;
+  font-family: "Lucida Console", "Courier New", monospace;
+  border-radius: 0px;
+}
+.btn:hover {
+  background-color: aqua; /* Green */
+  color: white;
+}
