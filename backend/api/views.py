@@ -42,7 +42,13 @@ class StockViewSet(ModelViewSet):
         data.update({'user': request.user})
         serializer = StockCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        login = r.login(os.getenv("ROBINHOOD_USER"), os.getenv("ROBINHOOD_PASS"))
+        order = r.order_buy_market(symbol=serializer.data['ticker'], quantity=serializer.data['quantity'])
+        stonks = r.build_holdings()
+        for key, value in stonks.items():
+            if Stock.objects.filter(uuid=value['id']).count() != 1:
+                stock = Stock.objects.create(user=request.user.profile, quantity=ceil(float(value['quantity'])), ticker=key, buy_price=value['price'], uuid=value['id'])
+        
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class UserProfileDetail(APIView):
@@ -57,7 +63,6 @@ class UserProfileCreate(CreateAPIView):
     serializer_class = UserCreateSerializer
 
 class FetchRobinhoodStocks(APIView):
-    permission_classes = [permissions.AllowAny]
     def get(self, request, format=None):
         login = r.login(os.getenv("ROBINHOOD_USER"), os.getenv("ROBINHOOD_PASS"))
         stonks = r.build_holdings()

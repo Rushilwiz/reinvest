@@ -39,7 +39,7 @@ class StockSerializer(serializers.ModelSerializer):
 class StockCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Stock
-        fields = ('user', 'ticker', 'buy_price', 'quantity', 'uuid')
+        fields = ('user', 'ticker', 'quantity',)
 
 class CharitySerializer(serializers.ModelSerializer):
     class Meta:
