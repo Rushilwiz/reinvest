@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./assets/Browse.css";
 import Plotly from "plotly.js";
 import createPlotlyComponent from "react-plotly.js/factory";
@@ -8,6 +9,8 @@ const Browse = (props) => {
   const [stockChartYValues, setStockChartYValues] = useState([]);
   const [days, setDays] = useState(30);
   const [stock, setStock] = useState("INTC");
+  const [quantity, setQuantity] = useState(0);
+  const history = useHistory();
 
   let stockChartXValuesList = [];
   let stockChartYValuesList = [];
@@ -35,6 +38,23 @@ const Browse = (props) => {
   useEffect(() => {
     fetchStock();
   }, [stock]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({ ticker: stock, quantity: quantity }),
+    };
+    fetch(`${process.env.REACT_APP_API_ENDPOINT}/stock/create`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <div className="portfolio container">
@@ -91,14 +111,15 @@ const Browse = (props) => {
       </div>
       <div>
         <br></br>
-        <form method="POST" action="/browse/">
+        <form onSubmit={onSubmit}>
           <div id="form-group">
             <label className="h4">Amount:</label>
             <input
               className="form-control"
               name="username"
               type="number"
-              step="0.01"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
             />
           </div>
           <br />

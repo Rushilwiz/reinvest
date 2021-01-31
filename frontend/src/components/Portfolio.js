@@ -10,6 +10,7 @@ const Portfolio = (props) => {
     percentage: 0.5,
     stocks: [],
   });
+  const [stocks, setStocks] = useState([]);
 
   const requestOptions = {
     method: "GET",
@@ -28,30 +29,58 @@ const Portfolio = (props) => {
       });
   };
 
+  const callStocksAPI = () => {
+    fetch(
+      `${process.env.REACT_APP_API_ENDPOINT}/robinhood/fetch/`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data !== undefined) {
+          setStocks(data);
+        }
+      });
+  };
+
   useEffect(() => {
     callAPI();
+    callStocksAPI();
   }, []);
 
   return (
     <div>
       <h1 className="d-flex justify-content-center m-2 p-4">Portfolio</h1>
-      <h1>Hello {state.user.username}!</h1>
-      <h4 className="h4">Your Charity of Choice: {state.charity}</h4>
-
+      <div className="container">
+        <h1>Hello {state.user.username}!</h1>
+        <h4>
+          Your Charity of Choice:{" "}
+          <a href="https://www.unwomen.org/en">UN Women</a> {state.charity}
+        </h4>
+        <h4>Your earnings: $0.00</h4>
+        <h4>Charity earnings: $17745.90</h4>
+      </div>
+      <br></br>
       <div className="bg-dark text-white">
-        <h4 className="d-flex justify-content-center m-2 p-4">Your Stocks:</h4>
-        {[].map((stock) => {
-          return (
-            <div className="d-inline-flex m-1 text-wrap bg-warning rounded p-3">
-              <h3>Stock: {stock.ticker}</h3>
-              <p>Quantity: {stock.quantity}</p>
-              <p>Buy Price: {stock.buy_price}</p>
-              <form method="POST" action="/delete/">
-                <input type="submit" value="Delete" class="btn btn-danger" />
-              </form>
-            </div>
-          );
-        })}
+        <div className="container">
+          <h4 className="d-flex justify-content-center m-2 p-4">
+            Your Stocks:
+          </h4>
+          {stocks.map((stock) => {
+            return (
+              <div
+                key={stock.uuid}
+                className="m-1 d-inline-block text-dark text-wrap bg-white rounded p-3"
+              >
+                <h3>Stock: {stock.ticker}</h3>
+                <p>Quantity: {stock.quantity}</p>
+                <p>Buy Price: ${stock.price}</p>
+                <form method="POST" action="/delete/">
+                  <input type="submit" value="Sell" class="btn btn-danger" />
+                </form>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
