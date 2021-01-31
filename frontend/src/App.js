@@ -5,7 +5,7 @@ import Bank from "./components/Bank";
 import Profile from "./components/Profile";
 import Browse from "./components/Browse";
 import Login from "./components/Login";
-
+import Nav from "./components/Nav";
 import "./App.css";
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Nav />
         <Switch>
           <Route component={Bank} path="/banking" />
           <Route component={Browse} path="/browse" />

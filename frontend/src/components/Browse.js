@@ -43,6 +43,17 @@ const Browse = (props) => {
         id="stocksearch"
         placeholder="Search stock..."
       />
+      <h4 class="h4">
+        ${(stockChartYValues[0] - stockChartYValues[1]).toFixed(2)}
+      </h4>
+      <h4 class="h4">
+        {(
+          ((stockChartYValues[0] - stockChartYValues[1]) /
+            stockChartYValues[1]) *
+          100
+        ).toFixed(2)}
+        %
+      </h4>
       <button
         class="btn"
         onClick={() => setStock(document.getElementById("stocksearch").value)}
