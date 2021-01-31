@@ -13,9 +13,9 @@ psycopg2 = "*"
 robin-stocks = "*"
 django-cors-headers = "*"
 pillow = "*"
-djangorestframework-jwt = "*"
 gunicorn = "*"
 whitenoise = "*"
+djangorestframework-simplejwt = "*"
 
 [requires]
 python_version = "3.8"
