@@ -11,6 +11,10 @@ djangorestframework = "*"
 python-dotenv = "*"
 psycopg2 = "*"
 robin-stocks = "*"
+django-cors-headers = "*"
+pillow = "*"
+djangorestframework-jwt = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
