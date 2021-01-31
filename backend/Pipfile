@@ -15,6 +15,7 @@ django-cors-headers = "*"
 pillow = "*"
 djangorestframework-jwt = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"
