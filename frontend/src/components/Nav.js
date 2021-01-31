@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Nav = (props) => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNavDropdown"
@@ -12,27 +12,27 @@ const Nav = (props) => {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/">
-              Portfolio <span class="sr-only">(current)</span>
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <a className="nav-link text-white" href="/">
+              Portfolio <span className="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/profile">
-              Profile <span class="sr-only">(current)</span>
+          <li className="nav-item">
+            <a className="nav-link text-white" href="/profile">
+              Profile <span className="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/banking">
+          <li className="nav-item">
+            <a className="nav-link text-white" href="/banking">
               Bank
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/browse">
+          <li className="nav-item">
+            <a className="nav-link text-white" href="/browse">
               Browse
             </a>
           </li>

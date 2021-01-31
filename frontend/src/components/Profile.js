@@ -15,8 +15,8 @@ const Profile = (props) => {
   };
 
   return (
-    <div class="container">
-      <h1 class="d-flex justify-content-center m-2 p-4">Profile</h1>
+    <div className="container">
+      <h1 className="d-flex justify-content-center m-2 p-4">Profile</h1>
       <h1></h1>
     </div>
   );

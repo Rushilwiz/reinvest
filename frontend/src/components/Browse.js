@@ -37,16 +37,16 @@ const Browse = (props) => {
     <div className="container">
       <h1 className="d-flex justify-content-center m-2 p-4">Browse</h1>
       <input
-        class="form-control"
+        className="form-control"
         name="stock"
         type="text"
         id="stocksearch"
         placeholder="Search stock..."
       />
-      <h4 class="h4">
+      <h4 className="h4">
         ${(stockChartYValues[0] - stockChartYValues[1]).toFixed(2)}
       </h4>
-      <h4 class="h4">
+      <h4 className="h4">
         {(
           ((stockChartYValues[0] - stockChartYValues[1]) /
             stockChartYValues[1]) *
@@ -55,7 +55,7 @@ const Browse = (props) => {
         %
       </h4>
       <button
-        class="btn"
+        className="btn"
         onClick={() => setStock(document.getElementById("stocksearch").value)}
       >
         Search
@@ -72,17 +72,17 @@ const Browse = (props) => {
         ]}
         layout={{ width: 720, height: 440, title: `${stock} ` }}
       />
-      <div class="d-inline bg-dark text-white">
-        <button class="btn" onClick={() => setDays(5)}>
+      <div className="d-inline bg-dark text-white">
+        <button className="btn" onClick={() => setDays(5)}>
           5D
         </button>
-        <button class="btn" onClick={() => setDays(14)}>
+        <button className="btn" onClick={() => setDays(14)}>
           14D
         </button>
-        <button class="btn" onClick={() => setDays(30)}>
+        <button className="btn" onClick={() => setDays(30)}>
           30D
         </button>
-        <button class="btn" onClick={() => setDays(100)}>
+        <button className="btn" onClick={() => setDays(100)}>
           100D
         </button>
       </div>
@@ -90,16 +90,16 @@ const Browse = (props) => {
         <br></br>
         <form method="POST" action="/browse/">
           <div id="form-group">
-            <label class="h4">Amount:</label>
+            <label className="h4">Amount:</label>
             <input
-              class="form-control"
+              className="form-control"
               name="username"
               type="number"
               step="0.01"
             />
           </div>
           <br />
-          <input class="btn btn-primary" type="submit" value="Submit" />
+          <input className="btn btn-primary" type="submit" value="Submit" />
         </form>
       </div>
     </div>
