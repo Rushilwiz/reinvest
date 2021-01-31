@@ -67,7 +67,10 @@ const Portfolio = (props) => {
           </h4>
           {stocks.map((stock) => {
             return (
-              <div className="m-1 d-inline-block text-dark text-wrap bg-white rounded p-3">
+              <div
+                key={stock.uuid}
+                className="m-1 d-inline-block text-dark text-wrap bg-white rounded p-3"
+              >
                 <h3>Stock: {stock.ticker}</h3>
                 <p>Quantity: {stock.quantity}</p>
                 <p>Buy Price: ${stock.price}</p>
@@ -77,30 +80,6 @@ const Portfolio = (props) => {
               </div>
             );
           })}
-          <div className="m-1 d-inline-block text-dark text-wrap bg-white rounded p-3">
-            <h3>Stock: AMZN</h3>
-            <p>Quantity: 5</p>
-            <p>Buy Price: $3206.20</p>
-            <form method="POST" action="/delete/">
-              <input type="submit" value="Sell" class="btn btn-danger" />
-            </form>
-          </div>
-          <div className="d-inline-block m-1 text-wrap bg-white text-dark rounded p-3">
-            <h3>Stock: INTC</h3>
-            <p>Quantity: 10</p>
-            <p>Buy Price: $55.51</p>
-            <form method="POST" action="/delete/">
-              <input type="submit" value="Sell" class="btn btn-danger" />
-            </form>
-          </div>
-          <div className="m-1 d-inline-block text-dark text-wrap bg-white rounded p-3">
-            <h3>Stock: MSFT</h3>
-            <p>Quantity: 5</p>
-            <p>Buy Price: $231.96</p>
-            <form method="POST" action="/delete/">
-              <input type="submit" value="Sell" class="btn btn-danger" />
-            </form>
-          </div>
         </div>
       </div>
     </div>
