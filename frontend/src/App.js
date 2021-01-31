@@ -4,46 +4,27 @@ import Portfolio from "./components/Portfolio";
 import Bank from "./components/Bank";
 import Profile from "./components/Profile";
 import Browse from "./components/Browse";
-import Login from "./components/Login";
 import Nav from "./components/Nav";
+import Signin from "./components/auth/Signin";
+import Signup from "./components/auth/Signup";
+
 import "./App.css";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const adminUser = {
-    email: "admin@admin.com",
-    password: "admin123",
-  };
-
-  const [user, setUser] = useState({ name: "", email: "" });
-  const [error, setError] = useState("");
-
-  const Login = (details) => {
-    console.log(details);
-  };
-
-  const Logout = () => {
-    console.log("Logout");
-  };
-
   return (
     <div className="App">
       <BrowserRouter>
         <Nav />
         <Switch>
-          <Route component={Bank} path="/banking" />
-          <Route component={Browse} path="/browse" />
-          <Route component={Profile} path="/profile" />
-          <Route component={Portfolio} path="/" />
+          <Route component={Signup} path="/register" />
+          <Route component={Signin} path="/login" />
+          <ProtectedRoute component={Bank} path="/banking" />
+          <ProtectedRoute component={Browse} path="/browse" />
+          <ProtectedRoute component={Profile} path="/profile" />
+          <ProtectedRoute exact component={Portfolio} path="/" />
         </Switch>
       </BrowserRouter>
-      {/* {(user.email !== "") ? (
-        <div className="welcome">
-          <h2>Welcome, <span>{user.name}</span></h2>
-          <button>Logout</button>
-          </div>
-      ) : (
-        <Login/>
-      )} */}
     </div>
   );
 }

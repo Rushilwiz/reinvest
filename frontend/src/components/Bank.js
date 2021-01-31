@@ -3,6 +3,8 @@ import "./assets/Portfolio.css";
 
 const Bank = (props) => {
   const [state, setState] = useState({});
+  const [bruh, setBruh] = useState(1);
+
   useEffect(() => {
     callAPI();
   });
@@ -15,9 +17,9 @@ const Bank = (props) => {
   };
 
   return (
-    <div className="container">
-      <h1 className="d-flex justify-content-center m-2 p-4">Bank</h1>
-      <h1></h1>
+    <div class="container">
+      <h1 class="d-flex justify-content-center m-2 p-4">Bank</h1>
+      <h1>{process.env.REACT_APP_API_ENDPOINT}</h1>
     </div>
   );
 };
