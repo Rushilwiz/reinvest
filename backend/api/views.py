@@ -38,7 +38,8 @@ class StockViewSet(ModelViewSet):
     
 
     def create(self, request, *args, **kwargs):
-        data = QueryDict.copy(request.data)
+        import copy
+        data = copy.deepcopy(request.data)
         data.update({'user': request.user})
         serializer = StockCreateSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
